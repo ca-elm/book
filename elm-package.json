@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "helpful summary of your project, less than 80 characters",
-    "repository": "https://github.com/ca-elm/lessons.git",
+    "repository": "https://github.com/ca-elm/book.git",
     "license": "BSD3",
     "source-directories": [
         "."
