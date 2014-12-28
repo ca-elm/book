@@ -179,7 +179,7 @@ Or by putting more than one input name before the `->`:
       , "Profit!"
       ]
 
-Each list can contain any number of items (even no items at all), but all the items in a list must be of the same type. You can't put `10` and `"Learn Elm"` into the same list, because one is a number and the other is a String. The type of a list is `List a`, where `a` is the type of each item in the list.
+Each list can contain any number of items—even no items at all, in the case of `noNumbers`—but all the items in a list must be of the same type. You can't put `10` and `"Learn Elm"` into the same list, because one is a number and the other is a String. The type of a list is `List a`, where `a` is the type of each item in the list.
 
 Lists can even contain functions, as long as they all have the same input and output types:
 
@@ -200,6 +200,10 @@ You can use the `List.length` function from the `List` module to compute the num
     import List
 
     main = Text.plainText (toString (List.length [4, 5, 6]))
+
+Since `List.length` works on any kind of list, you could annotate it like this:
+
+    List.length : List a -> Int
 
 # Map, 2, 3, 4
 
