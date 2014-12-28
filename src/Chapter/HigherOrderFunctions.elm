@@ -211,7 +211,43 @@ A useful higher-order function for dealing with lists is called `List.map`. It h
 
     List.map : (a -> b) -> List a -> List b
 
-<p class=idea>Just by looking at the type annotation, what do you think the `List.map` function does?
+<p class=idea>Just by looking at this type annotation, what do you think the `List.map` function does?
+
+`List.map` takes as input a function from one type to another, and a list of values of that first type. It applies the function to each item of the list and outputs a new list with the results of each application. For example, these two declarations of `numbers` are the same:
+
+    numbers = List.map sqrt [1, 4, 9, 16]
+
+    numbers = [sqrt 1, sqrt 4, sqrt 9, sqrt 16]
+
+You can also think of `map` as a function that turn functions which operate on a single value into functions that operate on lists of values.
+
+    sqrt : number -> number
+
+    listSqrt : List number -> List number
+    listSqrt = List.map sqrt
+
+The list module also contains `List.map2`, `List.map3`, etc., of the following types:
+
+    List.map2 : (a -> b -> c) -> List a -> List b -> List c
+    List.map3 : (a -> b -> c -> d) -> List a -> List b -> List c -> List d
+    ...
+
+`map2` is like `map`, but it operates on curried functions of two inputs. For each item in the output list, it draws inputs from its two input lists:
+
+    sums : List number
+    sums = List.map2 (+) [1, 2, 3] [4, 5, 6]
+
+    greetings : List String
+    greetings =
+      List.map2 (++)
+      ["Hello ", "Good day ", "Hi "]
+      ["Alice", "Bob", "Carol"]
+
+    main = asText sums
+
+<p class=idea>What happens when you use `map` instead of `map2` on a curried function of two inputs?
+
+Similarly, `map3` and `map4` operate on curried functions of three and four inputs, respectively.
 
 # Fold (from the Left)
 
