@@ -150,7 +150,7 @@ So far we've created functions by composing and applying other functions. You ca
 
     main = asText (square 4)
 
-When you apply a function defined in this way, Elm replaces each occurrence of the input name in the right hand side of the `->` with the input value. For example, when we write `square 4`, Elm calculates `4 * 4` and uses the result as the output of `square`.
+When you apply a function defined in this way, Elm replaces each occurrence of the input name on the right hand side of the `->` with the input value you provide. For example, when we write `square 4`, Elm calculates `4 * 4` and uses the result as the output of `square`.
 
 You can create a curried function by nesting these kinds of function definitions:
 
