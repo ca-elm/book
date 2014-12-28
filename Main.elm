@@ -7,7 +7,7 @@ import List
 import Signal
 import Color
 
-import Theme (bookTitle, pageTitle, centeredIn, page, bodyFace, headingFace)
+import Theme (bookTitle, sectionTitle, centeredIn, section, bodyFace, headingFace)
 import Slug (slugify)
 import Chapter (Chapter)
 import Contents (chapters)
@@ -15,17 +15,17 @@ import Contents (chapters)
 type alias Int2 = (Int,Int)
 
 main : Signal Element
-main = Signal.map allPages Window.dimensions
+main = Signal.map book Window.dimensions
 
-allPages : Int2 -> Element
-allPages dim = flow down <| List.map ((|>) dim) <|
-  [bookTitle, contents] ++ List.map chapter chapters
+book : Int2 -> Element
+book dim = flow down <| List.map ((|>) dim) <|
+  [bookTitle, contentsSection] ++ List.map chapterSection chapters
 
 
-contents : Int2 -> Element
-contents dim =
-  pageTitle "contents" "Contents" dim `above`
-  page (tableOfContents chapters) dim
+contentsSection : Int2 -> Element
+contentsSection dim =
+  sectionTitle "contents" "Contents" dim `above`
+  section (tableOfContents chapters) dim
 
 tableOfContents : List Chapter -> Element
 tableOfContents = flow down << List.map contentsItem
@@ -54,10 +54,10 @@ contentsItem {title,number,headings,slug} =
   ]
 
 
-chapter : Chapter -> Int2 -> Element
-chapter {title,slug,content} dim =
-  pageTitle slug title dim `above`
-  page content dim
+chapterSection : Chapter -> Int2 -> Element
+chapterSection {title,slug,content} dim =
+  sectionTitle slug title dim `above`
+  section content dim
 
 
 port title : String

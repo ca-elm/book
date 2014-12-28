@@ -163,8 +163,8 @@ bookTitle (w,h) =
        | otherwise -> 36) <|
   Text.fromString "Game Programming"
 
-pageTitle : String -> String -> Int2 -> Element
-pageTitle name title (w,h) =
+sectionTitle : String -> String -> Int2 -> Element
+sectionTitle name title (w,h) =
   below (spacer 1 8) <|
   below (color Color.lightGray (spacer w 1)) <|
   flip centeredIn (w,h) <|
@@ -175,18 +175,6 @@ pageTitle name title (w,h) =
   Text.bold <|
   Text.height 36 <|
   Text.fromString title
---pageTitle name title dim =
---  color (Color.rgba 0 0 0 0.8) <<
---  flip centeredIn dim <<
---  below (spacer 1 8) <<
---  above (spacer 1 96) <<
---  tag name <|
---  Text.leftAligned <<
---  Text.typeface ["Georgia", "sans-serif"] <<
---  Text.bold <<
---  Text.height 48 <<
---  Text.color (Color.rgba 255 255 255 0.8) <<
---  Text.fromString <| title
 
 
 centeredIn : Element -> Int2 -> Element
@@ -201,6 +189,6 @@ centeredIn e (w,h) =
     , margin
     ]
 
-page : Element -> Int2 -> Element
-page e dim =
+section : Element -> Int2 -> Element
+section e dim =
   spacer 1 128 `below` centeredIn e dim
