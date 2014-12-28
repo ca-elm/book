@@ -2,9 +2,10 @@ elm.js: *.elm **/*.elm Native/*.js Katex/*
 	elm-make Main.elm
 
 gh-pages:
-	git checkout gh-pages
-	git checkout master -- "*"
+	git checkout --detach
+	git symbolic-ref HEAD refs/heads/gh-pages
 	git rm -f .gitignore
+	make elm.js
 	git add --all
 	git commit --amend --no-edit
 	git checkout -
