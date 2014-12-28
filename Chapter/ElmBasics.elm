@@ -166,7 +166,7 @@ Now you have all the tools you need to display numbers directly:
     main : Element
     main = asText circumference
 
-<p class=idea>Elm can do all kinds of math for you. Try calculating the volume of a sphere ($V = \\frac{4}{3} \\pi r^3$) or the average of a few numbers.
+<p class=idea>Elm can do all kinds of math for you. Try calculating the volume ($V = \\frac{4}{3} \\pi r^3$) of a sphere with radius 5, or the average of 5, 7, 10, and 14.
 
 # Precedence
 
