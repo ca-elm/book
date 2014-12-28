@@ -10,7 +10,7 @@ import Color
 import Theme (bookTitle, pageTitle, centeredIn, page, bodyFace, headingFace)
 import Slug (slugify)
 import Chapter (Chapter)
-import Chapter.All (chapters)
+import Contents (chapters)
 
 type alias Int2 = (Int,Int)
 

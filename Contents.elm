@@ -1,4 +1,4 @@
-module Chapter.All where
+module Contents where
 
 import List
 import String
