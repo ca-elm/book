@@ -102,7 +102,7 @@ If any of your type annotations don't match the types of their respective declar
 
 Elm will generate this error message:
 
-    Type mismatch between the following types on line 6, column 12 to 26:
+    Type mismatch between the following types:
 
            String -> Graphics.Element.Element
 
@@ -132,7 +132,7 @@ You can use the traditional arithmetic operators (`+`, `-`, `*`, and `/`) to man
 
 If you try to display the result of that calculation with `main = Text.plainText circumference`, Elm gives you a type error:
 
-    Type mismatch between the following types on line 7, column 23 to 36:
+    Type mismatch between the following types:
 
            Float
 
@@ -177,7 +177,7 @@ You don't need to give your calculations a name. You can use them directly as th
 
 If you forget a set of parentheses (for example, `main = asText 6 / 2`), you'll get a type error like this:
 
-    Type mismatch between the following types on line 11, column 8 to 20:
+    Type mismatch between the following types:
 
            Float
 
