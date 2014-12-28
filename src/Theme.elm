@@ -11,7 +11,10 @@ type alias Int2 = (Int,Int)
 
 
 markdown : String -> Element
-markdown md = Markdown.toElement <| Katex.convert <| css ++ md
+markdown md = Markdown.toElementWith mdOptions <| Katex.convert <| css ++ md
+
+mdOptions : Markdown.Options
+mdOptions = let o = Markdown.defaultOptions in { o | smartypants <- True }
 
 css : String
 css = """

@@ -37,7 +37,7 @@ You can use the name anywhere you would use the value, and it will mean the same
     greeting = "Hello!"
     main = Text.plainText greeting
 
-`"Hello!"` is a kind of value called a <dfn>String</dfn>: Elm's name for a sequence of letters and other characters. We put quotation marks around "Hello!" so Elm interprets it as a String and not as Elm code—these quotation marks are *not* included in String itself.
+`"Hello!"` is a kind of value called a <dfn>String</dfn>: Elm's name for a sequence of letters and other characters. We put quotation marks around "Hello!" so Elm interprets it as a String and not as Elm code--these quotation marks are *not* included in String itself.
 
 <p class=idea>Try changing the letters in the String `"Hello!"` to change your greeting. Press <button>Compile</button> to see your changes on the right side of the editor.
 
@@ -49,7 +49,7 @@ The value we're using (`Text.plainText "Hello!"`) is more complicated than a Str
 
 # Functions
 
-Functions (like `plainText`) turn one thing (called an <dfn>input</dfn>) into another (called an <dfn>output</dfn>). They can be as simple as `identity`, a function whose output is always the same as its input, or `abs`, whose output is the absolute value of its input—or as complex as `image`, whose output is an Element that displays a picture from your computer on the screen.
+Functions (like `plainText`) turn one thing (called an <dfn>input</dfn>) into another (called an <dfn>output</dfn>). They can be as simple as `identity`, a function whose output is always the same as its input, or `abs`, whose output is the absolute value of its input--or as complex as `image`, whose output is an Element that displays a picture from your computer on the screen.
 
 To use a function on an input value, you write the function and the input next to each other with a space in the middle, like `Text.plainText "Hello!"`. `Text.plainText` is the function here, and `"Hello!"` is the input.
 
@@ -160,7 +160,7 @@ Feeding the output of one function into the input of another is called <dfn>func
 
 `asText` is a new function that takes a number as input, runs it through `toString` (producing a String), and then runs the result through `Text.plainText`, finally producing an Element as its own output. You can tell from the type annotation `number -> Element` on `asText` that we've "cut out the middleman": `asText` has the input type of `toString`, but the output type of `Text.plainText`.
 
-<p class=note>In order to compose two functions, the output type of the first function has to be the same as the input type of the second function—this allows us to pass the output of the first into the input of the second. In this case, if you look at the two function types `number -> String` and `String -> Element`, you can see that they share the String type.
+<p class=note>In order to compose two functions, the output type of the first function has to be the same as the input type of the second function--this allows us to pass the output of the first into the input of the second. In this case, if you look at the two function types `number -> String` and `String -> Element`, you can see that they share the String type.
 
 Now you have all the tools you need to display numbers directly:
 
@@ -188,11 +188,11 @@ If you forget a set of parentheses (for example, `main = asText 6 / 2`), you'll 
 
            (asText 6) / 2
 
-Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that these uses of functions have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the function first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2—which doesn't work, because an Element isn't a number). We can add our own parentheses to change how Elm interprets precedence in our code (divide 6 by 2, and then use that result as the input to `asText`).
+Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that these uses of functions have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the function first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2--which doesn't work, because an Element isn't a number). We can add our own parentheses to change how Elm interprets precedence in our code (divide 6 by 2, and then use that result as the input to `asText`).
 
 # Exercises
 
-1. Delete everything you have in the online editor. Write a program from scratch to show the text "Hello again!" in the space on the right side of the screen. Make sure you understand how each part of your program works—if you find yourself looking back at the examples, re-read the relevant section and start over.
+1. Delete everything you have in the online editor. Write a program from scratch to show the text "Hello again!" in the space on the right side of the screen. Make sure you understand how each part of your program works--if you find yourself looking back at the examples, re-read the relevant section and start over.
 
 1. Write type annotations for the following declarations:
 

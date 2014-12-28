@@ -55,7 +55,7 @@ We say that function application is <dfn>left-associative</dfn> because Elm trea
 
 # Operators Revisited
 
-You've actually seen quite a few curried functions already—they just had strange names, like `+` and `*`. When a function's name comprises symbols rather than letters, Elm treats it as an <dfn>infix operator</dfn>. The "infix" here means that you put the function name *between* the two inputs rather than *in front of* them like we did with `String.repeat`:
+You've actually seen quite a few curried functions already--they just had strange names, like `+` and `*`. When a function's name comprises symbols rather than letters, Elm treats it as an <dfn>infix operator</dfn>. The "infix" here means that you put the function name *between* the two inputs rather than *in front of* them like we did with `String.repeat`:
 
     main = asText (1 + 2)
 
@@ -116,7 +116,7 @@ You can partially apply `>>` to only one input as well:
 
     withNumber : (String -> a) -> number -> a
 
-Notice that `withNumber`'s type still has a type variable in it. Our partially applied function isn't picky about the output type of its input function—it could produce Strings, Elements, or even other functions.
+Notice that `withNumber`'s type still has a type variable in it. Our partially applied function isn't picky about the output type of its input function--it could produce Strings, Elements, or even other functions.
 
 We can even partially apply `withNumber`:
 
@@ -179,7 +179,7 @@ Or by putting more than one input name before the `->`:
       , "Profit!"
       ]
 
-Each list can contain any number of items—even no items at all, in the case of `noNumbers`—but all the items in a list must be of the same type. You can't put `10` and `"Learn Elm"` into the same list, because one is a number and the other is a String. The type of a list is `List a`, where `a` is the type of each item in the list.
+Each list can contain any number of items--even no items at all, in the case of `noNumbers`--but all the items in a list must be of the same type. You can't put `10` and `"Learn Elm"` into the same list, because one is a number and the other is a String. The type of a list is `List a`, where `a` is the type of each item in the list.
 
 Lists can even contain functions, as long as they all have the same input and output types:
 
@@ -191,7 +191,7 @@ They can also contain other lists:
     nestedLists : List (List number)
     nestedLists = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
 
-The `toString` function actually is actually an `a -> String` function—that is, it can convert any kind of value into a string. Before now it was only useful on numbers, but you can also use it to convert lists to Strings so you can display them:
+The `toString` function actually is actually an `a -> String` function--that is, it can convert any kind of value into a string. Before now it was only useful on numbers, but you can also use it to convert lists to Strings so you can display them:
 
     main = Text.plainText (toString [1, 2, 3, 4])
 
