@@ -163,7 +163,7 @@ Or by putting more than one input name before the `->`:
 
 # Lists of Things
 
-<dfn>Lists</dfn> are another useful kind of value in Elm. They look like this:
+<dfn>Lists</dfn> are another kind of value in Elm. They look like this:
 
     evenNumbers : List number
     evenNumbers = [2, 4, 6, 8, 10]
@@ -190,7 +190,7 @@ They can also contain other lists:
     nestedLists : List (List number)
     nestedLists = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
 
-The `toString` function actually is a function of type `a -> String`—that is, it can convert any kind of value into a string. Before now it was only useful on numbers, but you can also use it to convert lists to Strings so you can display them:
+The `toString` function actually is actually an `a -> String` function—that is, it can convert any kind of value into a string. Before now it was only useful on numbers, but you can also use it to convert lists to Strings so you can display them:
 
     main = Text.plainText (toString [1, 2, 3, 4])
 

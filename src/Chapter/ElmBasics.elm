@@ -204,7 +204,7 @@ Elm prefers to add parentheses around uses of a function rather than arithmetic 
 
   <p class=note>The names in these declarations have no significance. They are simply there so you can write, for example, `alpha : ...`. Remember that you can check your answers by clicking the compile button and verifying that there are no type errors.
 
-1. Write a program to calculate and display the average of the numbers 4, 9, 16, and 25. Try this first without using the `asText` function from the [Function Composition](#function-composition) section, and then modify your program to use `asText`. Which program is easier to understand write?
+1. Write a program to calculate and display the average of the numbers 4, 9, 16, and 25. Try this first without using the `asText` function from the [Function Composition](#function-composition) section, and then modify your program to use `asText`. Which program is easier to understand?
 
 1. The `sqrt` function takes a number as input and outputs its square root. Use the function composition operator to create a function `fourthRoot` which outputs the fourth root of its argument. Test your function by writing a program to display the fourth root of 16 (= 2).
 
