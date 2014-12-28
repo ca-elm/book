@@ -8,12 +8,18 @@ import Theme (markdown)
 import Chapter (ChapterData, Chapter)
 import Chapter.ElmBasics
 import Chapter.HigherOrderFunctions
+import Chapter.DataStructures
+import Chapter.TimeAndSpace
+import Chapter.Input
 
 chapters : List (Chapter)
 chapters =
   List.indexedMap process
   [ Chapter.ElmBasics.data
   , Chapter.HigherOrderFunctions.data
+  , Chapter.DataStructures.data
+  , Chapter.TimeAndSpace.data
+  , Chapter.Input.data
   ]
 
 process : Int -> ChapterData -> Chapter

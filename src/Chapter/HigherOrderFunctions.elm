@@ -123,5 +123,21 @@ We can even partially apply `withNumber`:
 
 In this instance, `withNumber` has type `(String -> Element) -> number -> Element`. We partially apply it to get a function `asText : number -> Element`.
 
+# Flip
+
+# Aside: Defining Functions
+
+# Lists of Things
+
+# Map, 2, 3, 4
+
+# Fold (from the Left)
+
+# Filtering Lists
+
+# More List Functions
+
+# Exercises
+
 """
   }
