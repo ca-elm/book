@@ -49,7 +49,7 @@ The value we're using (`Text.plainText "Hello!"`) is more complicated than a Str
 
 # Functions
 
-Functions (like `plainText`) turn one thing (called an <dfn>input</dfn>) into another (called an <dfn>output</dfn>). They can be as simple as `identity`, a function whose output is always the same as its input, or as complex as `image`, whose output is an Element that displays a picture from your computer on the screen.
+Functions (like `plainText`) turn one thing (called an <dfn>input</dfn>) into another (called an <dfn>output</dfn>). They can be as simple as `identity`, a function whose output is always the same as its input, or `abs`, whose output is the absolute value of its input—or as complex as `image`, whose output is an Element that displays a picture from your computer on the screen.
 
 To use a function on an input value, you write the function and the input next to each other with a space in the middle, like `Text.plainText "Hello!"`. `Text.plainText` is the function here, and `"Hello!"` is the input.
 
