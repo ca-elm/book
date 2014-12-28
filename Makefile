@@ -4,8 +4,8 @@ elm.js: *.elm **/*.elm Native/*.js
 gh-pages:
 	git checkout --detach
 	git symbolic-ref HEAD refs/heads/gh-pages
-	git rm -f .gitignore
 	make elm.js
+	git rm -rf .gitignore "**/*.elm" "Native"
 	git add elm.js
 	git commit --amend --no-edit
 	git checkout -
