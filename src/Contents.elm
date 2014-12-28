@@ -4,6 +4,7 @@ import List
 import String
 import Slug (slugify)
 import Theme (markdown)
+
 import Chapter (ChapterData, Chapter)
 import Chapter.ElmBasics
 import Chapter.HigherOrderFunctions
