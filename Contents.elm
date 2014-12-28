@@ -6,11 +6,13 @@ import Slug (slugify)
 import Theme (markdown)
 import Chapter (ChapterData, Chapter)
 import Chapter.ElmBasics
+import Chapter.HigherOrderFunctions
 
 chapters : List (Chapter)
 chapters =
   List.indexedMap process
   [ Chapter.ElmBasics.data
+  , Chapter.HigherOrderFunctions.data
   ]
 
 process : Int -> ChapterData -> Chapter
