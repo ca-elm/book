@@ -1,4 +1,4 @@
-elm.js: *.elm **/*.elm Native/*.js Katex/*
+elm.js: *.elm **/*.elm Native/*.js
 	elm-make Main.elm
 
 gh-pages:
