@@ -187,7 +187,37 @@ If you forget a set of parentheses (for example, `main = asText 6 / 2`), you'll 
 
            (asText 6) / 2
 
-Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that these uses of functions have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the function first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2). Parentheses let us change how Elm interprets precedence in our code (divide 6 by 2, and then feed that result into `asText`).
+Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that these uses of functions have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the function first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2—which doesn't work, because an Element isn't a number). We can add our own parentheses to change how Elm interprets precedence in our code (divide 6 by 2, and then use that result as the input to `asText`).
+
+# Functions with Multiple Inputs
+
+Type this program into the editor:
+
+    import Text
+    import String
+
+    main = Text.plainText (String.repeat 5 "Hello!")
+
+You'll notice that we imported the String module, which has more useful functions for dealing with String-type values. `String.repeat` is a function that repeats a string the number of times you give it. It looks like the functions you've seen in the past, but it looks like it takes two inputs. It has the following type annotation:
+
+    String.repeat : Int -> String -> String
+
+<p class=note>Int (one of Elm's number types) is short for integer. This means you can't give `String.repeat` a value with a decimal point like 4.35.
+
+But, as we mentioned above, all functions take one input and turn it into one output. There's a trick here: you can also write the program like this:
+
+    main = Text.plainText ((String.repeat 5) "Hello!")
+
+That is, `String.repeat` really just takes one input: a number. Its output is a function, of type `String -> String`, that takes a string and repeats it that number of times. We use apply new function (the output of `String.repeat 5`) to the String `"Hello!"`, and get `"Hello!Hello!Hello!Hello!Hello!"`. You can separate these two function invocations in your code:
+
+    fiveTimes : String -> String
+    fiveTimes = String.repeat 5
+
+    main = Text.plainText (fiveTimes "Hello!")
+
+We can add parentheses to the type annotation for `String.repeat` to make this more clear:
+
+    String.repeat : Int -> (String -> String)
 
 <!-- # Type Variables
 
