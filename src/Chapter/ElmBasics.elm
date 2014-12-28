@@ -3,6 +3,7 @@ module Chapter.ElmBasics where
 data =
   { title = "Elm Basics"
   , content = """
+
 We will be using the Elm programming language to create our games. In these first few chapters you'll learn how to program in Elm. Then you'll learn some topics specific to making games, and you'll get to make your own games using Elm.
 
 In this first chapter, we'll use an online version of Elm. Later, we'll use <a href=https://github.com/nathan/lemma/releases target=_blank>Lemma</a>, a free Elm editing application, so that you can save your Elm programs. For now, just point your web browser to <a href=http://elm-lang.org/try target=_blank>elm-lang.org/try</a> and we'll get started.
