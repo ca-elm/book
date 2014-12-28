@@ -130,17 +130,91 @@ In this instance, `withNumber` has type `(String -> Element) -> number -> Elemen
 
 # Flip
 
-# Aside: Defining Functions
+The `flip` function is a higher-order function that works on curried functions. It takes as input a function of two inputs and produces as output another function of two inputs with the roles of those inputs swapped. For example, while `(-)` subtracts its second input from its first, `flip (-)` subtracts its first input from its second.
+
+Flip is useful for partially applying functions to inputs that come later in their definition:
+
+    repeatHello = flip String.repeat "Hello!"
+
+    main = Text.plainText (repeatHello 10)
+
+<p class=note>Make sure you import the `String` module so you can use the `String.repeat` function.
+
+# Aside: Creating Functions
+
+So far we've created functions by composing and applying other functions. You can also create a function by explicitly naming its input:
+
+    square : number -> number
+    square = \\x -> x * x
+
+    main = asText (square 4)
+
+When you apply a function defined in this way, Elm replaces each occurrence of the input name in the right hand side of the `->` with the input value. For example, when we write `square 4`, Elm calculates `4 * 4` and uses the result as the output of `square`.
+
+You can create a curried function by nesting these kinds of function definitions:
+
+    average : number -> number -> number
+    average = \\x -> \\y -> (x + y) / 2
+
+Or by putting more than one input name before the `->`:
+
+    average : number -> number -> number
+    average = \\x y -> (x + y) / 2
 
 # Lists of Things
 
+<dfn>Lists</dfn> are another useful kind of value in Elm. They look like this:
+
+    evenNumbers : List number
+    evenNumbers = [2, 4, 6, 8, 10]
+
+    noNumbers : List number
+    noNumbers = []
+
+    todo : List String
+    todo =
+      [ "Learn Elm"
+      , "Make Games"
+      , "Profit!"
+      ]
+
+Each list can contain any number of items (even no items at all), but all the items in a list must be of the same type. You can't put `10` and `"Learn Elm"` into the same list, because one is a number and the other is a String. The type of a list is `List a`, where `a` is the type of each item in the list.
+
+Lists can even contain functions, as long as they all have the same input and output types:
+
+    repeaters : List (String -> String)
+    repeaters = [String.repeat 2, String.repeat 5, String.repeat 10]
+
+They can also contain other lists:
+
+    nestedLists : List (List number)
+    nestedLists = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+
+The `toString` function actually is a function of type `a -> String`—that is, it can convert any kind of value into a string. Before now it was only useful on numbers, but you can also use it to convert lists to Strings so you can display them:
+
+    main = Text.plainText (toString [1, 2, 3, 4])
+
+You can use the `List.length` function from the `List` module to compute the number of items in a list.
+
+    import List
+
+    main = Text.plainText (toString (List.length [4, 5, 6]))
+
 # Map, 2, 3, 4
+
+A useful higher-order function for dealing with lists is called `List.map`. It has the following type:
+
+    List.map : (a -> b) -> List a -> List b
+
+<p class=idea>Just by looking at the type annotation, what do you think the `List.map` function does?
 
 # Fold (from the Left)
 
 # Filtering Lists
 
 # More List Functions
+
+# Application as an Operator
 
 # Exercises
 
