@@ -16,14 +16,8 @@ type alias Int2 = (Int,Int)
 
 main : Signal Element
 main = Signal.map allPages Window.dimensions
---main = Signal.map2 route (Signal.constant "") Window.dimensions
 
---route : String -> Int2 -> Element
---route s =
---  if s == ""
---  then contents
---  else chapter << List.head << List.filter ((==) s << .slug) <| chapters
-
+allPages : Int2 -> Element
 allPages dim = flow down <| List.map ((|>) dim) <|
   [bookTitle, contents] ++ List.map chapter chapters
 
