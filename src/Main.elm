@@ -7,25 +7,26 @@ import List
 import Signal
 import Color
 
-import Theme (bookTitle, sectionTitle, centeredIn, section, bodyFace, headingFace)
+import Theme
 import Slug (slugify)
 import Chapter (Chapter)
 import Contents (chapters)
 
 type alias Int2 = (Int,Int)
 
+
 main : Signal Element
 main = Signal.map book Window.dimensions
 
 book : Int2 -> Element
 book dim = flow down <| List.map ((|>) dim) <|
-  [bookTitle, contentsSection] ++ List.map chapterSection chapters
+  [Theme.bookTitle, contentsSection] ++ List.map chapterSection chapters
 
 
 contentsSection : Int2 -> Element
 contentsSection dim =
-  sectionTitle "contents" "Contents" dim `above`
-  section (tableOfContents chapters) dim
+  Theme.sectionTitle "contents" "Contents" dim `above`
+  Theme.section (tableOfContents chapters) dim
 
 tableOfContents : List Chapter -> Element
 tableOfContents = flow down << List.map contentsItem
@@ -37,7 +38,7 @@ contentsItem {title,number,headings,slug} =
     Text.leftAligned <|
     Text.bold <|
     Text.height 24 <|
-    Text.typeface headingFace <|
+    Text.typeface Theme.headingFace <|
     Text.color Color.black <|
     Text.fromString <|
     toString number ++ ". " ++ title
@@ -46,7 +47,7 @@ contentsItem {title,number,headings,slug} =
     link ("#" ++ slugify heading) <|
     Text.leftAligned <|
     Text.color Color.black <|
-    Text.typeface bodyFace <|
+    Text.typeface Theme.bodyFace <|
     Text.fromString <| heading
     --toString number ++ "." ++ toString (index + 1) ++ ". " ++ heading
   ) headings ++ [
@@ -56,8 +57,8 @@ contentsItem {title,number,headings,slug} =
 
 chapterSection : Chapter -> Int2 -> Element
 chapterSection {title,slug,content} dim =
-  sectionTitle slug title dim `above`
-  section content dim
+  Theme.sectionTitle slug title dim `above`
+  Theme.section content dim
 
 
 port title : String
