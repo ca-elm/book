@@ -36,7 +36,7 @@ You can use the name anywhere you would use the value, and it will mean the same
     greeting = "Hello!"
     main = Text.plainText greeting
 
-`"Hello!"` is a kind of value called a <dfn>String</dfn>: Elm's name for a sequence of letters and other characters. We put quotation marks around "Hello!" so Elm interprets it as a String and not as Elm code—these quotation marks *are not* part of the string itself.
+`"Hello!"` is a kind of value called a <dfn>String</dfn>: Elm's name for a sequence of letters and other characters. We put quotation marks around "Hello!" so Elm interprets it as a String and not as Elm code—these quotation marks are *not* included in string itself.
 
 <p class=idea>Try changing the letters in the String `"Hello!"` to change your greeting. Press <button>Compile</button> to see your changes on the right side of the editor.
 
@@ -44,7 +44,7 @@ In our greeting program we associate the name *main* with another kind of value,
 
 <p class=idea>What happens when you change the name *main* to something else in your greeting program? Can you fix this by adding a declaration for *main* that uses the new name?
 
-The value we're using (`Text.plainText "Hello!"`) is more complicated than a number or a String, though. Elm can't display a String value because Strings have no formatting information like font, color, and size. We use the `plainText` <dfn>function</dfn> from the `Text` module to turn a String into an Element with the default formatting information.
+The value we're using (`Text.plainText "Hello!"`) is more complicated than a String, though. Elm can't display Strings directly because they have no formatting information like font, color, and size. We use the `plainText` <dfn>function</dfn> from the `Text` module we imported earlier to turn a String into an Element with the default formatting information.
 
 # Functions
 
@@ -52,7 +52,7 @@ Functions (like `plainText`) turn one thing (called an <dfn>input</dfn>) into an
 
 To use a function on an input value, you write the function and the input next to each other with a space in the middle, like `Text.plainText "Hello!"`. `Text.plainText` is the function here, and `"Hello!"` is the input.
 
-<p class=note>An important property of Elm functions is that their output is always the same if they are given the same input. If we give the `identity` function a 2 as input, it can't sometimes output a 2 and sometimes output a 3. If you have experience with another programming language like C or Java, keep this in mind, since it is not true in those languages.
+<p class=note>An important property of Elm functions is that their output is always the same if they are given the same input. If we give the `identity` function a 2 as input, it can't sometimes output a 2 and sometimes output a 3. Keep this in mind if you have experience with another programming language like C or Java, since it is not true in those languages.
 
 Functions are another kind of value, so we can associate them with names using top-level declarations:
 
@@ -71,10 +71,11 @@ We've mentioned a few different types already, like String and Element. Elm lets
 
     main = Text.plainText "Hello!"
 
-You can read the `:` as "is a value of type," so in this case you would say "greeting is a value of type String." This <dfn>type annotation</dfn> has to go on the line directly above the corresponding top-level declaration.
+You can read the `:` as "is a value of type," so in this case you would say "greeting is a value of type String." This <dfn>type annotation</dfn> has to go on the line directly above the top-level declaration it describes.
 
 We can tell Elm the type of `main` too, but we have to import the Element type from the `Graphics.Element` module first.
 
+    import Text
     import Graphics.Element (Element)
 
     greeting : String
@@ -94,7 +95,7 @@ The `->` is pronounced "to," as in "myPlainText has a type of String to Element.
 
 # Type Errors
 
-If type annotations don't match the types of their respective values, Elm will generate an error message when you compile your program. For example, if we try to make `greeting` have a function value instead of a String one:
+If any of your type annotations don't match the types of their respective declarations, Elm will generate an error message when you compile your program. For example, if we try to make `greeting` have a function value instead of a String one:
 
     greeting : String
     greeting = Text.plainText
@@ -124,14 +125,12 @@ Numbers are another kind of value in Elm. Unlike Strings, you don't need to put 
 
 You can use the traditional arithmetic operators (`+`, `-`, `*`, and `/`) to manipulate numbers in your Elm code. The circumference of a circle with radius 5, for example, would be:
 
-    circumference : number
     circumference = 2 * pi * 5
-
     pi = 3.14159
 
 # Converting Numbers to Strings
 
-But if you try to display that with `main = Text.plainText circumference`, Elm gives you a type error:
+If you try to display the result of that calculation with `main = Text.plainText circumference`, Elm gives you a type error:
 
     Type mismatch between the following types on line 7, column 23 to 36:
 
@@ -149,7 +148,6 @@ But if you try to display that with `main = Text.plainText circumference`, Elm g
 
 If we put our circumference (a number) into the `toString` function, we'll get a String as output; we can then feed that String into the `Text.plainText` function and get an Element to display on the screen.
 
-    main : Element
     main = Text.plainText (toString circumference)
 
 # Function Composition
@@ -175,9 +173,9 @@ Now you have all the tools you need to display numbers directly:
 You don't need to give your calculations a name. You can use them directly as the input to another function, but you have to surround them with parentheses:
 
     main : Element
-    main = asText ((7 + 10 + 16) / 3)
+    main = asText (6 / 2)
 
-If you leave out a set of parentheses (for example, `main = asText 6 / 2`), you'll get a type error like this:
+If you forget a set of parentheses (for example, `main = asText 6 / 2`), you'll get a type error like this:
 
     Type mismatch between the following types on line 11, column 8 to 20:
 
