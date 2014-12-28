@@ -9,6 +9,7 @@ gh-pages:
 	git add --all
 	git commit --amend --no-edit
 	git checkout -
+	make elm.js
 
 publish: gh-pages
 	git push origin gh-pages --force
