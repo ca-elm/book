@@ -5,12 +5,12 @@ import String
 import Slug (slugify)
 import Theme (markdown)
 import Chapter (ChapterData, Chapter)
-import Chapter.Basics
+import Chapter.ElmBasics
 
 chapters : List (Chapter)
 chapters =
   List.indexedMap process
-  [ Chapter.Basics.data
+  [ Chapter.ElmBasics.data
   ]
 
 process : Int -> ChapterData -> Chapter

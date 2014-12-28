@@ -1,4 +1,4 @@
-module Chapter.Basics where
+module Chapter.ElmBasics where
 
 data =
   { title = "Elm Basics"
