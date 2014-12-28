@@ -15,7 +15,7 @@ Type this program into the editor:
 
     main = Text.plainText (String.repeat 5 "Hello!")
 
-You'll notice that we imported the String module, which has more useful functions for dealing with String-type values. `String.repeat` is a function that repeats a String the number of times you give it. It looks like the functions you've seen in the past, but it looks like it takes two inputs. It has the following type annotation:
+You'll notice that we imported the String module, which has more useful functions for dealing with String-type values. `String.repeat` is a function that repeats a String the number of times you give it. It's similar to the functions you've seen in the past, but it looks like it takes two inputs. It has the following type annotation:
 
     String.repeat : Int -> String -> String
 
@@ -36,7 +36,12 @@ Just like any other function, you can save the output that `String.repeat` produ
     fiveTimes : String -> String
     fiveTimes = String.repeat 5
 
-    main = Text.plainText (fiveTimes "Hello!")
+    threeTimes : String -> String
+    threeTimes = String.repeat 3
+
+    main = Text.plainText (fiveTimes "Hello!" ++ threeTimes "Goodbye!")
+
+<p class=note>The `++` operator you see here <dfn>concatenates</dfn> the two strings: it creates a new string with the letters in the first string (`"Hello!Hello!Hello!Hello!Hello!"`) followed by the letters in the second (`"Goodbye!Goodbye!Goodbye!"`). Like arithmetic, it has lower precedence than function application; so you could also write `(fiveTimes "Hello!") ++ (threeTimes "Goodbye!")` to mean the same thing.
 
 This trick of outputting new functions that remember previous inputs is called <dfn>Currying</dfn> (after <a href=https://en.wikipedia.org/wiki/Haskell_Curry target=_blank>Haskell Curry</a>). It lets us create functions that appear to take any number of values as input in a language that only allows one input per function. As you saw above, this technique is so common that Elm allows us to remove the parentheses both in the type annotations on curried functions:
 
