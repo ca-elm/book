@@ -189,5 +189,23 @@ If you forget a set of parentheses (for example, `main = asText 6 / 2`), you'll 
 
 Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that these uses of functions have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the function first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2—which doesn't work, because an Element isn't a number). We can add our own parentheses to change how Elm interprets precedence in our code (divide 6 by 2, and then use that result as the input to `asText`).
 
+# Exercises
+
+1. Delete everything you have in the online editor. Write a program from scratch to show the text "Hello again!" in the space on the right side of the screen. Make sure you understand how each part of your program works—if you find yourself looking back at the examples, re-read the relevant section and start over.
+
+1. Write type annotations for the following declarations:
+
+    1. `alpha = "Hello!"`
+    1. `beta = toString`
+    1. `gamma = Text.plainText`
+    1. `delta = toString 5`
+    1. `epsilon = toString >> Text.plainText`
+
+  <p class=note>The names in these declarations have no significance. They are simply there so you can write, e.g., `alpha : ...`
+
+1. Write a program to calculate and display the average of the numbers 4, 9, 16, and 25. Try this first without using the `asText` function from the [Function Composition](#function-composition) section, and then modify your program to use `asText`. Which program is easier to understand write?
+
+1. The `sqrt` function takes a number as input and outputs its square root. Use the function composition operator to create a function `fhrt` which outputs the fourth root of its argument. Test your function by writing a program to display the fourth root of 16 (= 2).
+
 """
   }

@@ -30,10 +30,13 @@ h1 {
   font: bold 24px """ ++ cssFace headingFace ++ """;
   margin: 2rem 0 1rem;
 }
-p, ul {
+p, ul, ol {
   font-family: """ ++ cssFace bodyFace ++ """;
   margin: 0 0 1rem;
   line-height: 1.5;
+}
+ol ol {
+  list-style: lower-latin;
 }
 .idea {
   padding-left: 2rem;
