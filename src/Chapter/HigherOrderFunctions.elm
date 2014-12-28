@@ -135,8 +135,9 @@ The `flip` function is a higher-order function that works on curried functions. 
 Flip is useful for partially applying functions to inputs that come later in their definition:
 
     repeatHello = flip String.repeat "Hello!"
+    repeatHi = flip String.repeat "Hi!"
 
-    main = Text.plainText (repeatHello 10)
+    main = Text.plainText (repeatHello 6 ++ repeatHi 4 ++ repeatHello 3)
 
 <p class=note>Make sure you import the `String` module so you can use the `String.repeat` function.
 
