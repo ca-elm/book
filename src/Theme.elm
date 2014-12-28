@@ -6,6 +6,7 @@ import String
 import Text
 import Katex
 import Markdown
+
 type alias Int2 = (Int,Int)
 
 
@@ -138,6 +139,7 @@ dfn {
 """ ++ Katex.css ++ """
 </style>
 """
+
 
 headingFace : List String
 headingFace = ["Georgia", "serif"]
