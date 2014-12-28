@@ -6,7 +6,7 @@ gh-pages:
 	git symbolic-ref HEAD refs/heads/gh-pages
 	git rm -f .gitignore
 	make elm.js
-	git add --all
+	git add elm.js
 	git commit --amend --no-edit
 	git checkout -
 	make elm.js
