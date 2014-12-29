@@ -2,6 +2,8 @@ module Contents where
 
 import List
 import String
+import Regex
+import Maybe
 import Slug (slugify)
 import Theme (markdown)
 
@@ -11,6 +13,7 @@ import Chapter.HigherOrderFunctions
 import Chapter.DataStructures
 import Chapter.TimeAndSpace
 import Chapter.Input
+
 
 chapters : List (Chapter)
 chapters =
@@ -24,9 +27,21 @@ chapters =
 
 process : Int -> ChapterData -> Chapter
 process i chapter =
+  let slug = slugify chapter.title in
   { number = i + 1
   , title = chapter.title
-  , slug = slugify chapter.title
-  , content = markdown chapter.content
+  , slug = slug
+  , content = markdown <| processMarkdown slug chapter.content
   , headings = List.map (String.dropLeft 2) <| List.filter ((==) "#" << String.left 1) <| String.split "\n" chapter.content
   }
+
+
+processMarkdown : String -> String -> String
+processMarkdown slug =
+  Regex.replace Regex.All heading
+  (\{submatches} ->
+    let h = Maybe.withDefault "" <| List.head submatches in
+    "<h1 id=" ++ slug ++ "-" ++ slugify h ++ ">" ++ h ++ "</h1>")
+
+heading : Regex.Regex
+heading = Regex.regex "#[ \\t]*(.+)"

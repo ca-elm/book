@@ -44,7 +44,7 @@ contentsItem {title,number,headings,slug} =
     toString number ++ ". " ++ title
   ] ++ List.indexedMap (\index heading ->
     beside (spacer 48 1) <|
-    link ("#" ++ slugify heading) <|
+    link ("#" ++ slug ++ "-" ++ slugify heading) <|
     Text.leftAligned <|
     Text.color Color.black <|
     Text.typeface Theme.bodyFace <|
