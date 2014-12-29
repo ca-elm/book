@@ -146,21 +146,16 @@ Flip is useful for partially applying functions to inputs that come later in the
 So far we've created functions by composing and applying other functions. You can also create a function by explicitly naming its input:
 
     square : number -> number
-    square = \\x -> x * x
+    square x = x * x
 
     main = asText (square 4)
 
-When you apply a function defined in this way, Elm replaces each occurrence of the input name on the right hand side of the `->` with the input value you provide. For example, when we write `square 4`, Elm calculates `4 * 4` and uses the result as the output of `square`.
+When you apply a function defined in this way, Elm replaces each occurrence of the input name on the right hand side of the `=` with the input value you provide. For example, when we write `square 4`, Elm calculates `4 * 4` and uses the result as the output of `square`.
 
-You can create a curried function by nesting these kinds of function definitions:
-
-    average : number -> number -> number
-    average = \\x -> \\y -> (x + y) / 2
-
-Or by putting more than one input name before the `->`:
+You can create a curried function by putting more than one input name before the `=` sign:
 
     average : number -> number -> number
-    average = \\x y -> (x + y) / 2
+    average x y = (x + y) / 2
 
 # Lists of Things
 
