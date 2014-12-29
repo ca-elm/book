@@ -188,7 +188,7 @@ If you forget a set of parentheses (for example, `main = asText 6 / 2`), you'll 
 
            (asText 6) / 2
 
-Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that these uses of functions have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the function first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2--which doesn't work, because an Element isn't a number). We can add our own parentheses to change how Elm interprets precedence in our code (divide 6 by 2, and then use that result as the input to `asText`).
+Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that function applications have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the application first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2--which doesn't work, because an Element isn't a number). We can add our own parentheses to change how Elm interprets precedence in our code (divide 6 by 2, and then use that result as the input to `asText`).
 
 # Exercises
 
