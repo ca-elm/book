@@ -122,15 +122,15 @@ greeting = Text.plainText
 Elm will generate this error message:
 
 ```text
-    Type mismatch between the following types:
+Type mismatch between the following types:
 
-           String -> Graphics.Element.Element
+       String -> Graphics.Element.Element
 
-           String
+       String
 
-       It is related to the following expression:
+   It is related to the following expression:
 
-       Text.plainText
+   Text.plainText
 ```
 
 This tells us the two conflicting types (the String type we provided in the annotation, and the function type `String -> Graphics.Element.Element` of the value we provided), and the part of your code where the issue arose (`Text.plainText`).
@@ -158,15 +158,15 @@ pi = 3.14159
 If you try to display the result of that calculation with `main = Text.plainText circumference`, Elm gives you a type error:
 
 ```text
-    Type mismatch between the following types:
+Type mismatch between the following types:
 
-           Float
+       Float
 
-           String
+       String
 
-       It is related to the following expression:
+   It is related to the following expression:
 
-       circumference
+   circumference
 ```
 
 `Text.plainText` expects a String as input, but we're giving it a Float (one of Elm's number types). The `toString` function allows us to convert numbers to Strings, that is:
@@ -215,15 +215,15 @@ main = asText (6 / 2)
 If you forget a set of parentheses (for example, `main = asText 6 / 2`), you'll get a type error like this:
 
 ```text
-    Type mismatch between the following types:
+Type mismatch between the following types:
 
-           Float
+       Float
 
-           Graphics.Element.Element
+       Graphics.Element.Element
 
-       It is related to the following expression:
+   It is related to the following expression:
 
-       (asText 6) / 2
+   (asText 6) / 2
 ```
 
 Elm prefers to add parentheses around uses of a function rather than arithmetic calculations. We say that function applications have higher <dfn>precedence</dfn> than the calculations, meaning that Elm will do the application first and the arithmetic second (feed 6 into `asText`, then divide whatever it outputs by 2--which doesn't work, because an Element isn't a number). We can add our own parentheses to change how Elm interprets precedence in our code (divide 6 by 2, and then use that result as the input to `asText`).
