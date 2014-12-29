@@ -32,7 +32,7 @@ a:active {
 }
 h1 {
   font: bold 24px """ ++ cssFace headingFace ++ """;
-  margin: 2rem 0 1rem;
+  margin: 3rem 0 1rem;
 }
 p, ul, ol {
   font-family: """ ++ cssFace bodyFace ++ """;
