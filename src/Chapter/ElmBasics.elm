@@ -234,11 +234,11 @@ Elm prefers to add parentheses around uses of a function rather than arithmetic 
 
 1. Write type annotations for the following declarations:
 
-1. `alpha = "Hello!"`
-1. `beta = toString`
-1. `gamma = Text.plainText`
-1. `delta = toString 5`
-1. `epsilon = toString >> Text.plainText`
+    1. `alpha = "Hello!"`
+    1. `beta = toString`
+    1. `gamma = Text.plainText`
+    1. `delta = toString 5`
+    1. `epsilon = toString >> Text.plainText`
 
   <p class=note>The names in these declarations have no significance. They are simply there so you can write, for example, `alpha : ...`. Remember that you can check your answers by clicking the compile button and verifying that there are no type errors.
 
