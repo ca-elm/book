@@ -26,7 +26,9 @@ Click the <button>Compile</button> button (or press <kbd class=shortcut><kbd>con
 import Text
 ```
 
-The first line here is called an <dfn>import declaration</dfn>. It tells Elm what kind of functionality you're going to use later in the program. Each Elm <dfn>module</dfn> provides a different kind of functionality. In this case, we import the `Text` module so we can display text on the screen. Some other useful modules are `Keyboard`, for detecting key presses; `Graphics.Collage`, for displaying shapes on the screen; and `Random`, for generating random numbers.
+The first line here is called an <dfn>import declaration</dfn>. It tells Elm what kind of functionality you're going to use later in the program. Each Elm <dfn>module</dfn> provides a different kind of functionality. In this case, we import the `Text` module so we can display text on the screen.
+
+<p class=note>Some other useful modules are `Keyboard`, for detecting key presses; `Graphics.Collage`, for displaying shapes on the screen; and `Random`, for generating random numbers. We will discuss these in more detail in later chapters.
 
 The second line is empty. Elm ignores empty lines, but you can add them to organize your code and make it easier for humans to understand.
 
