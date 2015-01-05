@@ -18,16 +18,6 @@ hljs.registerLanguage('elm', function(hljs) {
     ]
   };
 
-  var PRAGMA = {
-    className: 'pragma',
-    begin: '{-#', end: '#-}'
-  };
-
-  var PREPROCESSOR = {
-    className: 'preprocessor',
-    begin: '^#', end: '$'
-  };
-
   var CONSTRUCTOR = {
     className: 'type',
     begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (build-in, infix).
@@ -39,9 +29,7 @@ hljs.registerLanguage('elm', function(hljs) {
     begin: '\\(', end: '\\)',
     illegal: '"',
     contains: [
-      PRAGMA,
       COMMENT,
-      PREPROCESSOR,
       {className: 'type', begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'},
       hljs.inherit(hljs.TITLE_MODE, {begin: '[_a-z][\\w\']*'})
     ]
@@ -55,10 +43,7 @@ hljs.registerLanguage('elm', function(hljs) {
 
   return {
     keywords:
-      'let in if then else case of where do module import hiding ' +
-      'qualified type alias newtype deriving class instance as default ' +
-      'infix infixl infixr foreign export ccall stdcall cplusplus ' +
-      'jvm dotnet safe unsafe family forall mdo proc rec',
+      'if then else case of let in type module where import as hiding open export foreign deriving port',
     contains: [
 
       // Top-level constructions.
@@ -78,50 +63,14 @@ hljs.registerLanguage('elm', function(hljs) {
         illegal: '\\W\\.|;'
       },
 
-      {
-        className: 'class',
-        begin: '^(\\s*)?(class|instance)\\b', end: 'where',
-        keywords: 'class family instance where',
-        contains: [CONSTRUCTOR, LIST, COMMENT]
-      },
-      {
-        className: 'typedef',
-        begin: '\\b(type(?:[ \\t]+alias)?)\\b', end: '$',
-        keywords: 'type deriving',
-        contains: [PRAGMA, COMMENT, CONSTRUCTOR, LIST, RECORD]
-      },
-      {
-        className: 'default',
-        beginKeywords: 'default', end: '$',
-        contains: [CONSTRUCTOR, LIST, COMMENT]
-      },
-      {
-        className: 'infix',
-        beginKeywords: 'infix infixl infixr', end: '$',
-        contains: [hljs.C_NUMBER_MODE, COMMENT]
-      },
-      {
-        className: 'foreign',
-        begin: '\\bforeign\\b', end: '$',
-        keywords: 'foreign import export ccall stdcall cplusplus jvm ' +
-                  'dotnet safe unsafe',
-        contains: [CONSTRUCTOR, hljs.QUOTE_STRING_MODE, COMMENT]
-      },
-      // {
-      //   className: 'shebang',
-      //   begin: '#!\\/usr\\/bin\\/env\ runhaskell', end: '$'
-      // },
-
       // "Whitespaces".
 
-      PRAGMA,
       COMMENT,
-      PREPROCESSOR,
 
       // Literals and names.
 
-      // TODO: characters.
       hljs.QUOTE_STRING_MODE,
+      hljs.APOS_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, {begin: '^[_a-z][\\w\']*'}),
