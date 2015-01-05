@@ -103,14 +103,13 @@ main = Text.plainText greeting
 
 # Function Types
 
-Functions have types too. A function type looks like `input -> output`; for example the type of our `myPlainText` function is:
+Functions have types too. A function type looks like `input -> output`; for example the type the `Text.plainText` function is:
 
 ```elm
-myPlainText : String -> Element
-myPlainText = Text.plainText
+Text.plainText : String -> Element
 ```
 
-The `->` is pronounced "to," as in "myPlainText has a type of String to Element." This reminds you that `myPlainText` takes in String values as input and converts them *to* Element values as output.
+The `->` is pronounced "to," as in "Text.plainText has a type of String to Element." This reminds you that `Text.plainText` takes in String values as input and converts them *to* Element values as output.
 
 # Type Errors
 
