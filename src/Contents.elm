@@ -40,8 +40,12 @@ processMarkdown : String -> String -> String
 processMarkdown slug =
   Regex.replace Regex.All heading
   (\{submatches} ->
-    let h = Maybe.withDefault "" <| List.head submatches in
-    "<h1 id=" ++ slug ++ "-" ++ slugify h ++ ">" ++ h ++ "</h1>")
+    let b = match submatches
+        h = match <| List.tail submatches in
+    b ++ "<h1 id=" ++ slug ++ "-" ++ slugify h ++ ">" ++ h ++ "</h1>")
+
+match : List (Maybe String) -> String
+match = Maybe.withDefault "" << List.head
 
 heading : Regex.Regex
-heading = Regex.regex "#[ \\t]*(.+)"
+heading = Regex.regex "(^|[\n\r])#[ \\t]*(.+)"
