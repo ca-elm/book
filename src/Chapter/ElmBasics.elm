@@ -138,7 +138,7 @@ This tells us the two conflicting types (the String type we provided in the anno
 
 # Numbers and Arithmetic
 
-Numbers are another kind of value in Elm. Unlike Strings, you don't need to put any special marks around them in your Elm code.
+<dfn>Numbers</dfn> are another kind of value in Elm. Unlike Strings, you don't need to put any special marks around them in your Elm code.
 
 ```elm
 oneDozen : number
