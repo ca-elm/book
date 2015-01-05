@@ -231,7 +231,7 @@ Elm prefers to add parentheses around uses of a function rather than arithmetic 
 
 # Exercises
 
-1. Delete everything you have in the online editor. Write a program from scratch to show the text "Hello again!" in the space on the right side of the screen. Make sure you understand how each part of your program works--if you find yourself looking back at the examples, re-read the relevant section and start over.
+1. Delete everything you have in the online editor. Write a program from scratch to show the text "Hello again!" in the space on the right side of the screen. Make sure you understand how each part of your program works--if you find yourself looking back at the example code, re-read the relevant section and start over.
 
 1. Write type annotations for the following declarations:
 
