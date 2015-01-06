@@ -12,7 +12,7 @@ import Chapter.ElmBasics
 import Chapter.HigherOrderFunctions
 import Chapter.DataStructures
 import Chapter.TimeAndSpace
-import Chapter.Input
+import Chapter.UserInput
 
 
 chapters : List (Chapter)
@@ -22,7 +22,7 @@ chapters =
   , Chapter.HigherOrderFunctions.data
   , Chapter.DataStructures.data
   , Chapter.TimeAndSpace.data
-  , Chapter.Input.data
+  , Chapter.UserInput.data
   ]
 
 process : Int -> ChapterData -> Chapter

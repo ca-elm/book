@@ -1,7 +1,7 @@
-module Chapter.Input where
+module Chapter.UserInput where
 
 data =
-  { title = "Input"
+  { title = "User Input"
   , content = """
 
 Animations are great, but they're not what we set out to create. Games, unlike animations, are interactive, so in this chapter you'll learn how to respond to user input from the mouse and keyboard.
