@@ -25,7 +25,7 @@ String.repeat : Int -> String -> String
 
 <p class=note>Int (one of Elm's number types) is short for integer. This means you can't give `String.repeat` a value with a decimal point like 4.35.
 
-But, as we mentioned above, all functions take one input and turn it into one output. There's a trick here: you can also write the program like this:
+But, as we mentioned above, all functions take one input and turn it into one output. There's a trick here: you can also write the declaration for `main` like this:
 
 ```elm
 main = Text.plainText ((String.repeat 5) "Hello!")
