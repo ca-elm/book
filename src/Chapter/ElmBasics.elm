@@ -59,11 +59,11 @@ The value we're using (`Text.plainText "Hello!"`) is more complicated than a Str
 
 # Functions
 
-Functions (like `plainText`) turn one thing (called an <dfn>input</dfn>) into another (called an <dfn>output</dfn>). They can be as simple as `identity`, a function whose output is always the same as its input, or `abs`, whose output is the absolute value of its input--or as complex as `image`, whose output is an Element that displays a picture from your computer on the screen.
+Functions (like `plainText`) turn one thing (called an <dfn>input</dfn>) into another (called an <dfn>output</dfn>). They can be as simple as `sqrt`, whose output is the square root of its input number--or as complex as `image`, whose output is an Element that displays a picture from your computer on the screen.
 
 To use a function on an input value, you write the function and the input next to each other with a space in the middle, like `Text.plainText "Hello!"`. `Text.plainText` is the function here, and `"Hello!"` is the input. In Elm, using a function on an input is called <dfn>applying</dfn> the function to the input.
 
-<p class=note>An important property of Elm functions is that their output is always the same if they are given the same input. If we give the `identity` function a 2 as input, it can't sometimes output a 2 and sometimes output a 3. Keep this in mind if you have experience with another programming language like C or Java, since it is not true in those languages.
+<p class=note>An important property of Elm functions is that their output is always the same if they are given the same input. If we give the `sqrt` function a 4 as input, it can't sometimes output a 2 and sometimes output a -2. Keep this in mind if you have experience with another programming language like C or Java, since it is not true in those languages.
 
 Functions are another kind of value, so we can associate them with names using top-level declarations:
 
