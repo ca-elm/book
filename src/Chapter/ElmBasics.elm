@@ -38,7 +38,7 @@ The second line is empty. Elm ignores empty lines, but you can add them to organ
 main = Text.plainText "Hello!"
 ```
 
-This third line tells Elm what the program does. This is another kind of declaration, called a <dfn>top-level declaration</dfn>. It associates a <dfn>name</dfn>, like *oneDozen*, with a <dfn>value</dfn>, like the number 12. In Elm code, this looks like `oneDozen = 12`.
+This third line tells Elm what the program does. This is another kind of declaration, called a <dfn>top-level declaration</dfn>. It associates a <dfn>name</dfn>, e.g. *oneDozen*, with a <dfn>value</dfn>, e.g. the number 12. In Elm code, this looks like `oneDozen = 12`.
 
 You can use the name anywhere you would use the value, and it will mean the same thing. For example, we could give our `"Hello!"` the name *greeting* and use that name instead:
 
