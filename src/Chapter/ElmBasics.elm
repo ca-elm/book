@@ -247,11 +247,11 @@ Elm prefers to add parentheses around uses of a function rather than arithmetic 
 
 1. Answer the following questions about the functions `f`, `g`, and `h` with these type annotations:
 
-    ```elm
-    f : String -> number
-    g : String -> Element
-    h : number -> String
-    ```
+   ```elm
+   f : String -> number
+   g : String -> Element
+   h : number -> String
+   ```
 
     1. Can you compose the functions `f` and `g` as `f >> g`? If so: what is the type of the result? If not: explain.
     1. What about composing `f` and `h` as `f >> h`? If you can do this: what is the type of the result? If not: explain.
