@@ -58,16 +58,20 @@ ol ol {
   left: 0.5rem;
   top: 0.5rem;
 }
-.note {
+.note, .hint {
   border-left: 0.3rem solid rgba(0,0,0,.1);
   color: rgba(0,0,0,.6);
   padding-left: 0.7rem;
   margin-left: 1rem;
 }
-.note::before {
+.note::before,
+.hint::before {
   content: "Note:";
   margin-right: 0.3rem;
   font-weight: 600;
+}
+.hint::before {
+  content: "Hint:";
 }
 .at-risk {
   opacity: .3;
