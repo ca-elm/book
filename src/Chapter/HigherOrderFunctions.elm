@@ -243,6 +243,8 @@ The `toString` function actually is actually an `a -> String` function--that is,
 main = Text.plainText (toString [1, 2, 3, 4])
 ```
 
+# Working with Lists
+
 You can use the `List.length` function from the `List` module to compute the number of items in a list.
 
 ```elm
@@ -256,6 +258,13 @@ Since `List.length` works on any kind of list, you could annotate it like this:
 ```elm
 List.length : List a -> Int
 ```
+
+The `List` module provides some useful functions for dealing with lists of numbers:
+
+- `List.sum` adds the numbers in a list and outputs the sum
+- `List.product` multiplies the numbers in a list and outputs the product
+- `List.maximum` outputs the largest number in a list
+- `List.minimum` outputs the smallest number in a list
 
 # Map, 2, 3, 4
 
