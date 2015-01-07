@@ -427,9 +427,21 @@ List.sum = List.foldr (+) 0
 
 # Filtering Lists
 
+`List.filter` lets you create a new list with a subset of the items in the input list. It takes as input a function which tells it whether to include each item in the final list.
+
 # More List Functions
 
 # Exercises
+
+1. The `max` function has a type of `number -> number -> number` and returns the larger of its two inputs; similarly, `min` returns the smaller of its two inputs. Use these two functions to define:
+
+  ```elm
+  clamp : number -> number -> number -> number
+  ```
+
+  Where `clamp low high x` outputs the number between `low` and `high` (inclusive) which is closest to `x`; that is, `clamp low high x` outputs `low` if `x` is less than `low`, `high` if `x` is greater than `high`, and `x` otherwise.
+
+  Use partial application and function composition to define clamp in terms of its first two inputs (`clamp low high = ...`).
 
 <p class=progress>
 
