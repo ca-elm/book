@@ -443,6 +443,14 @@ List.sum = List.foldr (+) 0
 
   Use partial application and function composition to define clamp in terms of its first two inputs (`clamp low high = ...`).
 
+1. Write type annotations for the following type declarations:
+
+  1. `alpha = max 4`
+  1. `beta = String.repeat << (+) 4`
+  1. `gamma = (>>) sqrt >> (>>)`
+  1. `delta = flip >> flip`
+  1. `epsilon = (>>) toString >> (|>)`
+
 <p class=progress>
 
 """
