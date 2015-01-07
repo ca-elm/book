@@ -73,6 +73,16 @@ ol ol {
   opacity: .3;
   color: #a00;
 }
+.progress {
+  background-color: #ffc;
+  padding: 16px;
+  margin: 1rem;
+  box-shadow: 0 5px 16px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.06);
+}
+.progress::before {
+  white-space: pre-wrap;
+  content: 'This text is a work in progress. That\\'s all we have so far! Check again tomorrow and there might be more material here.';
+}
 code {
   display: inline-block;
   background: #f5f5f5;

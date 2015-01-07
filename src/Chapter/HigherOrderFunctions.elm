@@ -322,6 +322,10 @@ Similarly, `map3` and `map4` operate on curried functions of three and four inpu
 
 # Fold (from the Left)
 
+`List.foldl` is another extremely useful function for dealing with lists.
+
+<p class=progress>
+
 # Filtering Lists
 
 # More List Functions
