@@ -76,7 +76,7 @@ ol ol {
 .progress {
   background-color: #ffc;
   padding: 16px;
-  margin: 1rem;
+  margin: 6rem 1rem 1rem;
   box-shadow: 0 5px 16px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.06);
 }
 .progress::before {
