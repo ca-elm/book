@@ -181,6 +181,41 @@ main = Text.plainText (repeatHello 6 ++ repeatHi 4 ++ repeatHello 3)
 
 <p class=note>Make sure you import the `String` module so you can use the `String.repeat` function.
 
+Flip also allows you to swap the order of inputs to an operator:
+
+```elm
+(<<) = flip (>>)
+
+asText = Text.plainText << toString
+```
+
+<p class=note>Elm includes this definition of backwards function composition by default.
+
+# Application as an Operator
+
+Elm has another function-related operator, `<|`, called the <dfn>application operator</dfn>. It takes a function and an input and applies the function to the input; that is, `f <| x` is the same as `f x`. This is useful because the operator `<|` has much lower precedence than normal function application; so instead of writing parentheses around nested function calls, you can use `<|`:
+
+```elm
+main = Text.plainText (toString 16)
+main = Text.plainText <| toString 16
+```
+
+If you have more than one nested function application, you can use function composition to get rid of the other parentheses:
+
+```elm
+main = Text.plainText << toString <| sqrt 16
+main = Text.plainText (toString (sqrt 16))
+```
+
+The application operator also allows you to treat function application like a normal function. You can, for example, define the backwards function application operator like this:
+
+```elm
+(|>) = flip (<|)
+main = toString 16 |> Text.plainText
+```
+
+<p class=note>Elm includes this definition of `|>` by default.
+
 # Aside: Creating Functions
 
 So far we've created functions by composing and applying other functions. You can also create a function by explicitly naming its input:
@@ -390,15 +425,13 @@ List.sum = List.foldr (+) 0
 
 <p class=idea>Define `List.maximum` using a fold and the `max` function, which returns the larger of its two input numbers. Should you use `List.foldr` or `List.foldr1`?
 
-<p class=progress>
-
 # Filtering Lists
 
 # More List Functions
 
-# Application as an Operator
-
 # Exercises
+
+<p class=progress>
 
 """
   }
