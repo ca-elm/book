@@ -20,7 +20,7 @@ hljs.registerLanguage('elm', function(hljs) {
 
   var CONSTRUCTOR = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\']*(?![\\.\\w\'])', // TODO: other constructors (build-in, infix).
+    begin: '\\b(?:[A-Z][\\w\']*|number|comparable)(?![\\.\\w\'])', // TODO: other constructors (build-in, infix).
     relevance: 0
   };
 
