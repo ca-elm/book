@@ -410,7 +410,7 @@ Elm computes:
 countUp = "One" ++ ("Two" ++ ("Three" ++ ""))
 ```
 
-If the list is empty, `List.foldr` just outputs the base case unchanged. If the operation doesn’t make sense on empty lists, you can use `List.foldr1`, which uses the first number as its base case:
+If the list is empty, `List.foldr` just outputs the base case unchanged. If the operation doesn’t make sense on empty lists, you can use `List.foldr1`, which uses the last item of the list as its base case:
 
 ```elm
 countUp = List.foldr1 (++) ["One", "Two", "Three"]
