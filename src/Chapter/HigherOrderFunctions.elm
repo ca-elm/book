@@ -207,7 +207,7 @@ average x y = (x + y) / 2
 
 ```elm
 evenNumbers : List number
-evenNumbers = [2, 4, 6, 8, 10]
+evenNumbers = [2, 2, 4, 4, 6, 6]
 
 noNumbers : List number
 noNumbers = []
@@ -243,6 +243,12 @@ The `toString` function actually is actually an `a -> String` function--that is,
 main = Text.plainText (toString [1, 2, 3, 4])
 ```
 
+Elm also provides the shortcut function `Text.asText : a -> Element`, which converts its input to a String and then outputs an Element with that String in a monospace font:
+
+```elm
+main = Text.asText [1, 2, 3, 4]
+```
+
 # Working with Lists
 
 You can use the `List.length` function from the `List` module to compute the number of items in a list.
@@ -261,10 +267,45 @@ List.length : List a -> Int
 
 The `List` module provides some useful functions for dealing with lists of numbers:
 
-- `List.sum` adds the numbers in a list and outputs the sum
-- `List.product` multiplies the numbers in a list and outputs the product
-- `List.maximum` outputs the largest number in a list
-- `List.minimum` outputs the smallest number in a list
+- `List.sum` adds the numbers in a list and outputs the sum.
+
+  ```elm
+  List.sum [5, 5, 7, 7, 9, 9]
+  ```
+
+- `List.product` multiplies the numbers in a list and outputs the product.
+
+  ```elm
+  List.product [1, 2, 3, 4]
+  ```
+
+- `List.maximum` outputs the largest number in a list.
+
+  ```elm
+  List.maximum [3, -5, 7, 2, 3]
+  ```
+
+- `List.minimum` outputs the smallest number in a list.
+
+  ```elm
+  List.minimum [3, -5, 7, 2, 3]
+  ```
+
+and for dealing with lists in general:
+
+-  `List.append` takes two lists and outputs a new list with elements from both of the input lists.
+
+  ```elm
+  List.append [1, 2, 3] [4, 5, 6]
+  ```
+
+-  `List.repeat` takes a number <var>n</var> and a value and outputs a list with that value repeated <var>n</var> times.
+
+  ```elm
+  List.repeat 5 "Hello!"
+  ```
+
+Finally, if you want a list of then numbers between 1 and 5 (including 1 and 5), you can just write `[1..5]`.
 
 # Map, 2, 3, 4
 
@@ -313,16 +354,41 @@ greetings =
   ["Hello ", "Good day ", "Hi "]
   ["Alice", "Bob", "Carol"]
 
-main = asText sums
+main = Text.asText sums
 ```
 
 <p class=idea>What happens when you use `map` instead of `map2` on a curried function of two inputs?
 
 Similarly, `map3` and `map4` operate on curried functions of three and four inputs, respectively.
 
-# Fold (from the Left)
+# Fold (from the Right)
 
-`List.foldl` is another extremely useful function for dealing with lists.
+`List.foldr` is another extremely useful function for dealing with lists. It lets you combine all the items in a list using a curried function of two inputs. Starting with a “base case” you supply, `List.foldr` applies the input function to the last item of the list and the base case; then to the second-to-last item of the list and the result of the previous application; and so on, until there are no more list items left. So when you write:
+
+```elm
+countUp = List.foldr (++) "" ["One", "Two", "Three"]
+```
+
+Elm computes:
+
+```elm
+countUp = "One" ++ ("Two" ++ ("Three" ++ ""))
+```
+
+If the list is empty, `List.foldr` just outputs the base case unchanged. If the operation doesn’t make sense on empty lists, you can use `List.foldr1`, which uses the first number as its base case:
+
+```elm
+countUp = List.foldr1 (++) ["One", "Two", "Three"]
+countUp = "One" ++ ("Two" ++ "Three")
+```
+
+`List.foldr` describes a very general and very common pattern of functions that operate on lists. You can define all of the functions mentioned above in terms of it; for example, `List.sum` looks like this:
+
+```elm
+List.sum = List.foldr (+) 0
+```
+
+<p class=idea>Define `List.maximum` using a fold and the `max` function, which returns the larger of its two input numbers. Should you use `List.foldr` or `List.foldr1`?
 
 <p class=progress>
 
