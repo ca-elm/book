@@ -427,7 +427,52 @@ List.sum = List.foldr (+) 0
 
 # Filtering Lists
 
-`List.filter` lets you create a new list with a subset of the items in the input list. It takes as input a function which tells it whether to include each item in the final list.
+`List.filter` lets you create a new list with a subset of the items in the input list. It takes as input a function which decides whether to include each item in the final list. This function, called a <dfn>predicate</dfn>, returns a value of type Bool.
+
+Bool (short for Boolean, named after <a href=https://en.wikipedia.org/wiki/George_Boole target=_blank>George Boole</a>) is a type with only two values--`True` and `False`. They mean just what they appear to mean--that something is true (e.g., `3 < 4`) or false (e.g., `5 > 10`), respectively. If the predicate returns `True` for an item, that item is included in the output of `List.filter`; if it returns `False`, that item is excluded.
+
+For example, to select the items in a list greater than 10, you could write this:
+
+```elm
+numbers = [4, 6, 15, 4, 5, 20, 3, 26, 5, 9]
+
+isLarge : number -> Bool
+isLarge x = x > 10
+
+largeNumbers = List.filter isLarge numbers
+```
+
+<p class=note>Predicates often have names that start with *is*, e.g. `isLarge` or `isEven` or `isActive`.
+
+Or, more concisely:
+
+```elm
+largeNumbers = List.filter ((<) 10) numbers
+```
+
+<p class=idea>Why does this example use `(<) 10` instead of, for example, `(>) 10`? Can you rewrite it using `flip` and `(>)`?
+
+Elm provides the basic comparison operators `<`, `<=` (for $\\leq$), `>=` (for $\\geq$), and `>`, as well as the equality operator `==` ($=$ is used for assignment, so Elm uses a different operator) and the inequality operator `/=` (which looks kind of like $\\neq$). The following are all `True`:
+
+```elm
+5 > 3
+4 >= 4
+4 == 4
+5 /= 2
+1 <= 1
+2 < 7
+```
+
+You can combine Booleans using the operators `&&`, which outputs `True` only if both of its inputs are `True` (read this as *and*) and `||`, which outputs `True` if one or more of its inputs is `True` (read this as *or*). The following are all `True`:
+
+```elm
+3 < 4 && 5 < 6
+1 > 2 || 3 == 3
+1 < 2 || 3 < 2
+4 == 4 || 5 == 5
+```
+
+Finally, the `not` function inverts a Bool value: it outputs `True` when given `False`, and `False` when given `True`.
 
 # More List Functions
 
