@@ -398,7 +398,7 @@ Similarly, `map3` and `map4` operate on curried functions of three and four inpu
 
 # Fold (from the Right)
 
-`List.foldr` is another extremely useful function for dealing with lists. It lets you combine all the items in a list using a curried function of two inputs. Starting with a “base case” you supply, `List.foldr` applies the input function to the last item of the list and the base case; then to the second-to-last item of the list and the result of the previous application; and so on, until there are no more list items left. So when you write:
+`List.foldr` is another extremely useful function for dealing with lists. It lets you combine all the items in a list using a curried function of two inputs. Starting with a "base case" you supply, `List.foldr` applies the input function to the last item of the list and the base case; then to the second-to-last item of the list and the result of the previous application; and so on, until there are no more list items left. So when you write:
 
 ```elm
 countUp = List.foldr (++) "" ["One", "Two", "Three"]
@@ -410,7 +410,7 @@ Elm computes:
 countUp = "One" ++ ("Two" ++ ("Three" ++ ""))
 ```
 
-If the list is empty, `List.foldr` just outputs the base case unchanged. If the operation doesn’t make sense on empty lists, you can use `List.foldr1`, which uses the last item of the list as its base case:
+If the list is empty, `List.foldr` just outputs the base case unchanged. If the operation doesn't make sense on empty lists, you can use `List.foldr1`, which uses the last item of the list as its base case:
 
 ```elm
 countUp = List.foldr1 (++) ["One", "Two", "Three"]
