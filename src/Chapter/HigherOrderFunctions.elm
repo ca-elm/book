@@ -398,7 +398,7 @@ Similarly, `map3` and `map4` operate on curried functions of three and four inpu
 
 # Fold (from the Right)
 
-`List.foldr` is another extremely useful function for dealing with lists. It lets you combine all the items in a list using a curried function of two inputs. Starting with a "base case" you supply, `List.foldr` applies the input function to the last item of the list and the base case; then to the second-to-last item of the list and the result of the previous application; and so on, until there are no more list items left. So when you write:
+`List.foldr` is another extremely useful function for dealing with lists. It lets you combine all the items in a list using a curried function of two inputs. Starting with a <dfn>base case</dfn> you supply, `List.foldr` applies the input function to the last item of the list and the base case; then to the second-to-last item of the list and the result of the previous application; and so on, until there are no more list items left. So when you write:
 
 ```elm
 countUp = List.foldr (++) "" ["One", "Two", "Three"]
