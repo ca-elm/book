@@ -478,6 +478,8 @@ Finally, the `not` function inverts a Bool value: it outputs `True` when given `
 
 # Exercises
 
+1. Explain the difference between the expressions `String.repeat`, `String.repeat 5`, and `String.repeat 5 "Hello!"`. Give the type of each expression.
+
 1. The `max` function has a type of `number -> number -> number` and returns the larger of its two inputs; similarly, `min` returns the smaller of its two inputs. Use these two functions to define:
 
   ```elm
