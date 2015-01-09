@@ -495,6 +495,7 @@ Finally, the `not` function inverts a Bool value: it outputs `True` when given `
   1. `String.repeat 5 >> String.repeat 3`
   1. `flip String.repeat "Hello" >> String.repeat 2`
   1. `min 4 >> flip String.repeat "A"`
+  1. `(-) 4`
   1. `((-) >> (|>)) 4`
 
 1. Write type annotations for the following type declarations:
