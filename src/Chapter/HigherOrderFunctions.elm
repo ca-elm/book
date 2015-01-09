@@ -490,6 +490,13 @@ Finally, the `not` function inverts a Bool value: it outputs `True` when given `
 
   Use partial application and function composition to define clamp in terms of its first two inputs (`clamp low high = ...`).
 
+1. Explain in words what each of the following functions do. Also give the type of each function.
+
+  1. `String.repeat 5 >> String.repeat 3`
+  1. `flip String.repeat "Hello" >> String.repeat 2`
+  1. `min 4 >> flip String.repeat "A"`
+  1. `((-) >> (|>)) 4`
+
 1. Write type annotations for the following type declarations:
 
   1. `alpha = max 4`
