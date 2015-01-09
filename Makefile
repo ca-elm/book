@@ -1,4 +1,4 @@
-elm.js: src/*.elm src/**/*.elm src/Native/*.js
+elm.js: $(wildcard src/*.elm) $(wildcard src/**/*.elm) $(wildcard src/Native/*.js) $(wildcard base/src/*.elm) $(wildcard base/src/**/*.elm) $(wildcard base/src/Native/*.js)
 	elm-make src/Main.elm
 
 gh-pages:

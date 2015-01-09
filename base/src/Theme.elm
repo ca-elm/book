@@ -171,8 +171,8 @@ cssFace : List String -> String
 cssFace = String.join ", "
 
 
-bookTitle : Int2 -> Element
-bookTitle (w,h) =
+bookTitle : String -> Int2 -> Element
+bookTitle content (w,h) =
   above (spacer 1 64) <|
   flip centeredIn (w,h) <|
   Text.leftAligned <|
@@ -183,7 +183,7 @@ bookTitle (w,h) =
        | w > 500 -> 60
        | w > 370 -> 48
        | otherwise -> 36) <|
-  Text.fromString "Game Programming"
+  Text.fromString content
 
 sectionTitle : String -> String -> Int2 -> Element
 sectionTitle name title (w,h) =
