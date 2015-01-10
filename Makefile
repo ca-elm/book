@@ -1,5 +1,5 @@
 elm.js: $(wildcard src/*.elm) $(wildcard src/**/*.elm) $(wildcard src/Native/*.js) $(wildcard base/src/*.elm) $(wildcard base/src/**/*.elm) $(wildcard base/src/Native/*.js)
-	elm-make src/Main.elm
+	elm-make --yes src/Main.elm
 
 gh-pages:
 	$(eval sha = $(shell git rev-parse HEAD))
