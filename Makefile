@@ -1,4 +1,5 @@
 elm.js: $(wildcard src/*.elm) $(wildcard src/**/*.elm) $(wildcard src/Native/*.js) $(wildcard base/src/*.elm) $(wildcard base/src/**/*.elm) $(wildcard base/src/Native/*.js)
+	elm-package install --yes
 	elm-make --yes src/Main.elm
 
 gh-pages:
