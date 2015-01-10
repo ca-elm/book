@@ -476,6 +476,8 @@ Finally, the `not` function inverts a Bool value: it outputs `True` when given `
 
 # More List Functions
 
+The `List` module provides a number of other functions for you to use in your programs. You can find the full list on the [Elm package website](http://package.elm-lang.org/packages/elm-lang/core/latest/List), which lists each function with its type signature, a description, and an example of how to use it.
+
 # Exercises
 
 1. Explain the difference between the expressions `String.repeat`, `String.repeat 5`, and `String.repeat 5 "Hello!"`. Give the type of each expression.
