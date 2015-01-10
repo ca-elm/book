@@ -369,7 +369,7 @@ listSqrt : List number -> List number
 listSqrt = List.map sqrt
 ```
 
-The list module also contains `List.map2`, `List.map3`, etc., of the following types:
+The `List` module also contains `List.map2`, `List.map3`, etc., of the following types:
 
 ```elm
 List.map2 : (a -> b -> c) -> List a -> List b -> List c
