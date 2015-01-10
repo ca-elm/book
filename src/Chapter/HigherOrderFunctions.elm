@@ -476,7 +476,9 @@ Finally, the `not` function inverts a Bool value: it outputs `True` when given `
 
 # More List Functions
 
-The `List` module provides a number of other functions for you to use in your programs. You can find the full list on the [Elm package website](http://package.elm-lang.org/packages/elm-lang/core/latest/List), which lists each function with its type signature, a description, and an example of how to use it.
+The `List` module provides a number of other functions for you to use in your programs. You can find the full list on the <a href=http://package.elm-lang.org/packages/elm-lang/core/latest/List target=_blank>Elm package website</a>, which lists each function with its type signature, a description, and an example of how to use it.
+
+<p class=idea>You can explore the functions and values in other modules as well by clicking the <a href=http://package.elm-lang.org/packages/elm-lang/core/latest target=_blank>core</a> link at the top of the page. Try, for example <a href=http://package.elm-lang.org/packages/elm-lang/core/latest/Basics target=_blank>Basics</a> (automatically imported in every Elm file) or <a href=http://package.elm-lang.org/packages/elm-lang/core/latest/String target=_blank>String</a>.
 
 # Exercises
 
