@@ -88,7 +88,7 @@ The `|` here is pronounced as "where" and the `<-` as "gets," so we would say "p
 
 # Row Polymorphism
 
-You might think the type of `grow` would be `{ age : Int } -> { age : Int }` in this new case, since it only operators on the `age` field of its input. However, when we try to use this type annotation:
+You might think the type of `grow` would be `{ age : Int } -> { age : Int }` in this new case, since it only operates on the `age` field of its input. However, when we try to use this type annotation:
 
 ```elm
 grow : { age : Int } -> { age : Int }
