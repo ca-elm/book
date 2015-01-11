@@ -510,7 +510,5 @@ The `List` module provides a number of other functions for you to use in your pr
   1. `delta = flip >> flip`
   1. `epsilon = (>>) toString >> (|>)`
 
-<p class=progress>
-
 """
   }
