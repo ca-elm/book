@@ -97,7 +97,7 @@ grow p = { p | age <- p.age + 1 }
 olderJohn = grow john
 ```
 
-Elm gives an error:
+Elm gives us an error:
 
 ```text
 Type mismatch between the following types:
