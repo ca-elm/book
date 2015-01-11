@@ -119,6 +119,10 @@ The type of `grow` is actually `{ r | age : Int } -> { r | age : Int }`. The `r 
 
 # Pattern Matching with Case Expressions
 
+# Polymorphic Types
+
+# Recursive Types
+
 # Exercises
 
 """
