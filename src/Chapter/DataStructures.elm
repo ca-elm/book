@@ -111,7 +111,7 @@ Type mismatch between the following types:
 
 Elm treats record types that are different in any way as distinct, so we get an error when we try to use `grow` on a Person. This is good, because if we were allowed to use `grow` on `john`, we would still only get back a value of type `{ age : Int }`, as the type annotation for `grow` indicates. We would have forgotten that the fields `first` and `last` in the Person type even existed.
 
-The type of `grow` is actually `{ r | age : Int } -> { r | age : Int }`. The `r |` indicates that `grow` can take records of any type, as long as they have the fields to the right of `|`--in this case, an `age` field of type `Int`. This is called <dfn>row polymorphism</dfn>. The `r` here is a type variable that stands for the record with all of the fields we did't list--when we use `grow` on `john`, for example, this would be the type `{ first : String, last : String }`.
+The type of `grow` is actually `{ r | age : Int } -> { r | age : Int }`. The `r |` indicates that `grow` can take records of any type, as long as they have the fields to the right of `|`--in this case, an `age` field of type `Int`. This is called <dfn>row polymorphism</dfn>. The `r` here is a type variable that stands for the record with all of the fields we didn't list--when we use `grow` on `john`, for example, this would be the type `{ first : String, last : String }`.
 
 <p class=progress>
 
