@@ -4,7 +4,7 @@ data =
   { title = "Data Structures"
   , content = """
 
-Up until this point, you've used lots of different values of lots of different types, but have only had one way of storing multiple values, namely: lists. A list is an example of an extremely simple data structure. In this section, we'll take a look at some of the other data structures available to you in elm.
+Up until this point, you've used lots of different values of lots of different types, but have only had one way of storing multiple values, namely: lists. A list is an example of an extremely simple data structure. In this section, we'll take a look at some of the other data structures available to you in Elm.
 
 # Union Types
 
