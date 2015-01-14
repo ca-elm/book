@@ -8,15 +8,12 @@ Up until this point, you've used lots of different values of lots of different t
 
 # Union Types
 
-<dfn>Union types</dfn> are essentially a way to join different types together, hence their name. They allow you to store many values of different types inside of a single data structure. For those of you with a java background; as the <a href="http://elm-lang.org/learn/Union-Types.elm">Elm website</a> puts it: "Think of [union types] as enums on steroids."
+<dfn>Union types</dfn> are essentially a way to join different types together, hence their name. They allow you to store many values of different types inside of a single data structure. For those of you with a Java background; as the <a href="http://elm-lang.org/learn/Union-Types.elm" target=_blank>Elm website</a> puts it: "Think of [union types] as enums on steroids."
 
 Let's start off with defining a very simple union type:
 
 ```elm
-type Animal
-  = Rabbit
-  | Dog
-  | Cat
+type Animal = Rabbit | Dog | Cat
 
 myBunny : Animal
 myBunny = Rabbit
@@ -27,104 +24,106 @@ myPuppy = Dog
 myKitty : Animal
 myKitty = Cat
 ```
-<p class=note>You might have noticed that the definition of Animal is written on multiple lines after the first indented. This is allowed (and often encouraged!) in Elm. Doing this has no impact on the program, so the first statement could have been written as `type Animal = Rabbit | Dog | Cat`, but the code is much cleaner when the statement is split up across multiple lines.
 
-The first statement defines the type Animal such that something of the type Animal can have three possible values: Rabbit, Dog and Cat. In this case, the pipe (`|`) character is used to mean "or," in that an Animal can be a Rabbit **or** Dog **or** Cat. The rest of the code just creates a few Animals. As you can see from the type declarations, despite having a three different values, each still has the type Animal.
+The first statement defines the type Animal such that something of the type Animal can have three possible values: Rabbit, Dog and Cat. In this case, the pipe (`|`) character is used to mean "or," in that an Animal can be a Rabbit **or** Dog **or** Cat. The rest of the code just creates a few Animals. As you can see from the type declarations, despite having a three different values, each still has the type Animal. This is similar to how the counting numbers are values of type Int.
 
-Right now, it might seem like union types really are just enumerations, so let's now add in the data component. Let's say we want to keep some information about each different animal. For the rabbits, we need to know their color, but for dogs and cats we need to know their owner's name and the Animal's age. Let's redefine Animal so that it allows for this.
+Right now, it might seem like union types really are just enumerations, so let's now add in the data component. Union types can hold other types, hence their name! Let's define a Calculation type which represents a mathematical calculation. The Calculation can either work in which case we give it a result, or be invalid (e.g. dividing by zero) in which case we give it an error (Err) message:
 
 ```elm
-type Animal
-  = Rabbit String
-  | Dog String Int
-  | Cat String Int
+type Calculation
+  = Ok Float
+  | Err String
 
-myBunny : Animal
-myBunny = Rabbit "white"
+goodMath : Calculation
+goodMath = Ok 2.3
 
-cindysPuppy : Animal
-cindysPuppy = Dog "Cindy" 3
+badMath : Calculation
+badMath = Err "You can't divide by zero."
 
-johnsCat : Animal
-johnsCat = Cat "John" 2
 ```
-<p class=note> You'll notice that instead of `number`, here we use `Int`.   `number` is actually a special type which can be either an `Int` (an integer value) or a `Float` (a decimal number). Elm normally decides for you which type `number` should be, but when defining union types, you need to specify which you'd like to use. In this case, we only want whole number ages, so we use `Int`.
+<p class=note> You'll notice that instead of number, here we use Float.   number is actually a special type which can be either an Int (an integer value) or a Float (a decimal number). Elm normally decides for you which type number should be, but when defining union types, you need to specify which you'd like to use. In this case, we want to be able to represent any value, even non-integer ones, so we use Float.
 
-<p class=note>`Rabbit String`, `Dog String Int`, `Cat String Int` are all the different <dfn>type constructors</dfn> of Animal. They're called this because they are used to create or *construct* values of the type Animal.
-
-You can use union types in the way you would use any other type. You can make functions that operate on and with them (we'll get to that soon!), you can display them with Text.asText, you can even use them in other union types! Now that we know we can use union types in other union types, we can do some cool things. Let's try redefining Animal again to keep track of each Animal's age, if it's wild or domestic, and its owner if it is domestic. We'll do this using a second union type which we'll call Owner.
+You can use union types in the way you would use any other type. In fact, you can even include union types in your union types! Let's try making our Calculation contain what mathematical operation it uses:
 
 ```elm
-type Owner
-  = Domestic String
-  | Wild
+-- Operations are Add, Subtract, Multiply, Divide and Exp respectively
+type Operation = Add | Sub | Mult | Div | Exp
 
-type Animal
-  = Rabbit Owner Int
-  | Dog Owner Int
-  | Cat Owner Int
+type Calculation
+  = Ok Operation Float
+  | Err Operation String
 
-wildBunny : Animal
-wildBunny = Rabbit (Wild) 3
+goodMath : Calculation
+goodMath = Ok Add 6
 
-myPuppy : Animal
-myPuppy = Dog (Domestic "Me") 8
+moreGoodMath : Calculation
+moreGoodMath = Ok Div 5
 
-johnsCat : Animal
-johnsCat = Cat (Domestic "John") 7
+badMath : Calculation
+badMath = Err Div "You can't divide by zero!"
 ```
 
 # Pattern Matching with Case Expressions
 
-Now that we know what union types are and how to define them, let's look at creating some functions that make use of them. First, we'll define a function which checks if an Animal (a type we defined in the last section) is domestic or not.
-
-<p class="note"> In this example, we'll make use of a new type called `Bool` (short for Boolean). A Bool can be have a value of either `True` or `False` and as you might have guessed represent a statement being either true or false. In this case, the function will return `True` if the Animal is a cat, and `False` if the animal is a Dog or Rabbit.
+Now that we know what union types are and how to define them, let's look at creating some functions that make use of them. Let's start off with the animal type we defined before, and make a function that makes the given animal's sound. 
 
 ```elm
 import Text
 
-...
+type Animal = Rabbit | Dog | Cat
 
-isRabbit : Animal -> Bool
-isRabbit mysteryPet =
-  case mysteryPet of
-    Rabbit owner age -> True
-    Dog owner age -> False
-    Cat owner age -> False
-
-main = Text.asText (isRabbit johnsCat)
-
+introduce : Animal -> String
+introduce animal =
+  case animal of
+    Rabbit -> "What's up doc?"
+    Dog -> "Woof!"
+    Cat -> "Meow!"
 ```
 
-As you can see, the program outputs false. If you switch `johnsCat` with `wildBunny` in the top level declaration of main, you'll see the result changes to true, as expected.
+This function makes use of a case expression. A <dfn>case expression</dfn> looks at the value you give it, and checks the list of <dfn>patterns</dfn> to see if it matches any of them. In this case, Animals that are Rabbits match `Rabbit`, Dogs match `Dog` and Cats match `Cat`. 
 
-Let's break this function down so we can better understand what's going on. This function uses what's called a <dfn>case expression</dfn>. Case expressions let us look at a union type and change the results of a function depending on its value. The case expression begins with `case mysteryPet of`. This tells Elm which union type we want to use in our case expression. In this example, we want to use `mysteryPet`. You might have noticed that all of the following lines are indented one level further. This is to let Elm know that they're a part of the case expression rather than the rest of the function. Next, we have `Rabbit owner age -> True`. Case expressions make use of a very cool aspect of functional programming called <dfn>pattern matching</dfn>. In this case, the pattern is `Rabbit owner age`, so the entire line is saying if the union type in question matches the pattern, return True. Because all Rabbits are created using the a constructor that matches this pattern, when presented with a Rabbit, the function returns true. The remaining two lines check for Dogs and Cats and return False.
-
-Now you may be wondering why in the pattern matching, we have to include `owner` and `age`. In case statements, these additional artificats act sort of like arguments to a function, in that in the part of the line after the arrow, they are replaced with the respective value found in the union type you're using the case statement on. Knowing this, we can do some interesting things. Let's try making a function that converts human years into rabbit/dog/cat years. (Think: "My dog is 3 years old, so he's 12 in dog years.")
+Like how you can pattern match against the different values of the type Animal, you can patten match against values of other types like String and number. Additionally, you can pattern match with variables! These will match anything, and work almost exactly like arguments to functions. Let's use this to create the divide function, which divides two numbers, and returns a Calculation.
 
 ```elm
-getAnimalAge : Animal -> number
-getAge mysterypet =
-  case mysteryPet of
-    Rabbit owner age -> age * 9
-    Dog owner age -> age * 4
-    Cat owner age -> age * 3
+import Text
+import List
 
-main = Text.asText (getAge myPuppy)
+type Operation = Add | Sub | Mult | Div | Exp
+
+type Calculation
+  = Ok Operation Float
+  | Err Operation String
+
+divide : number -> number -> Calculation
+divide x y =
+  case y of
+    0 -> Err Div "You can't divide by zero!"
+    anything -> Ok Div (x / y)
+
+badMath : Calculation
+badMath = divide 10 0
+
+goodMath : Calculation
+goodMath = divide 10 2
+
+main = Text.asText goodMath
 ```
 
-As expected, the program outputs 32, which is 8 (the age of myPuppy), times 4.
+Here, `anything` gets assigned the value of y in the expression on its right, but we don't use it in this case. You can use that data if you want to! Pattern matching allows some really interesting constructs. Say we wanted to get just the result of a calculation. We can do this by <dfn>extracting</dfn> values from our union types through patten matching.
 
-<p class=note>A quick disclaimer, I couldn't find a reputable source so I made these age conversions up. They're probablly really far off, so don't try to actually make use of them.
+```elm
+getResult : Calculation -> String
+getResult calc =
+  case calc of
+    Ok operation result -> "Ok! Result was " ++ (toString result)
+    Err operation message -> "Error! Result was " ++ message
 
-
-# Records
-
-# Accessing
-
-# Updating
+main = Text.asText (getResult goodMath)
+```
 
 # Exercises
+
+
 
 """
   }
