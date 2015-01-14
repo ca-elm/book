@@ -523,7 +523,11 @@ The `List` module provides a number of other functions for you to use in your pr
   1. `epsilon = flip List.map [1, 2, 3]`
   1. `zeta = List.map (|>) [1, 2, 3]`
 
-1. Write a function `reasonable : List number -> List number` which outputs the numbers in its input list that are between 1 and 100 (inclusive).
+1. Write a function `reasonable : List number -> List number`, which outputs the numbers in its input list that are between 1 and 100 (inclusive).
+
+1. Define `iterate : Int -> (a -> a) -> a -> a`, which takes a number and a function <var>f</var> and returns a function which repeatedly applies <var>f</var> the given number of times. For example, `iterate 3 ((++) ".") "Hello?"` would give `"...Hello?"`.
+
+  You may find it helpful to use the `always` function, which takes two inputs and always returns the first one (i.e., `always x y = x`), or the `identity` function, which returns its input unchanged (i.e., `identity x = x`).
 
 """
   }
