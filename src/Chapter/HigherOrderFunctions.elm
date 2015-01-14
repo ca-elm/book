@@ -510,5 +510,20 @@ The `List` module provides a number of other functions for you to use in your pr
   1. `delta = flip >> flip`
   1. `epsilon = (>>) toString >> (|>)`
 
+1. Define `range : List number -> number`, which returns the difference between the smallest and largest elements in a list.
+
+1. `List.head` outputs the first item of a list and `List.tail` outputs all but the first element; for example, `List.head [1, 2, 3]` is 1 and `List.tail [1, 2, 3]` is `[2, 3]`. Use these two functions to define `joinWords`, which takes a list of Strings and outputs a String formed by joining the strings together with spaces, e.g., `joinWords ["a", "few", "words"]` would be `"a few words"`.
+
+1. Write type annotations for the following declarations:
+
+  1. `alpha = List.foldr (++) "..."`
+  1. `beta = List.map (++)`
+  1. `gamma = List.map2 (++)`
+  1. `delta = List.foldr (>>)`
+  1. `epsilon = flip List.map [1, 2, 3]`
+  1. `zeta = List.map (|>) [1, 2, 3]`
+
+1. Write a function `reasonable : List number -> List number` which outputs the numbers in its input list that are between 1 and 100 (inclusive).
+
 """
   }
