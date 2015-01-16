@@ -113,8 +113,6 @@ Elm treats record types that are different in any way as distinct, so we get an 
 
 The type of `grow` is actually `{ r | age : Int } -> { r | age : Int }`. The `r |` indicates that `grow` can take records of any type, as long as they have the fields to the right of `|`--in this case, an `age` field of type `Int`. This is called <dfn>row polymorphism</dfn>. The `r` here is a type variable that stands for the record with all of the fields we didn't list--when we use `grow` on `john`, for example, this would be the type `{ first : String, last : String }`.
 
-Up until this point, you've used lots of different values of lots of different types, but have only had one way of storing multiple values, namely: lists. A list is an example of an extremely simple data structure. In this section, we'll take a look at some of the other data structures available to you in Elm.
-
 # Union Types
 
 <dfn>Union types</dfn> are essentially a way to join different types together, hence their name. They allow you to store many values of different types inside of a single data structure. For those of you with a Java background; as the <a href="http://elm-lang.org/learn/Union-Types.elm" target=_blank>Elm website</a> puts it: "Think of [union types] as enums on steroids."
