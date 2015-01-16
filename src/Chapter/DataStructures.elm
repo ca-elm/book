@@ -197,7 +197,7 @@ Like how you can pattern match against the different values of the type Animal, 
 import Text
 import List
 
-type Operation = Add | Sub | Mult | Div | Exp
+type Operation = Add | Sub | Mult | Div | Exp | Sqrt
 
 type Calculation
   = Ok Operation Float
@@ -232,6 +232,41 @@ main = Text.asText (getResult goodMath)
 <p class=progress>
 
 # Exercises
+
+1. Create a valid top level declaration corresponding to each given type annotation.
+
+  ```elm
+  type Vehicle = Plane | Train | Car
+
+  alpha : { topic:String, notes:List String }
+
+  beta : { vehicle:Vehicle, topSpeed:Int }
+
+  gamma : { username:String, settings:List { name:String, enabled:Bool } }
+  ```
+
+2. Given that the following is valid, define the type Numeric.
+
+  ```elm
+  pi : Numeric
+  pi = 3.14
+  ```
+
+3. Given the definition of the union type Maybe below, create a function of type `Maybe String -> String` which extracts the value of a Maybe, or returns `"The maybe had no value!"` if the Maybe is Nothing.
+
+  ```elm
+  type Maybe a
+    = Just a
+    | Nothing
+  ```
+
+4. Given the type alias below, define the function `tickTock` of type `Time -> Time` which takes a time, and adds one to the time field.
+
+  ```elm
+    type alias Time = { score:Int, time:Int }
+  ```
+
+
 
 """
   }
